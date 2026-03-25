@@ -7,7 +7,7 @@ import { useTypedAppFormContext } from "../../../hooks/use-app-form"
 
 import { sliders } from "../data/sliders";
 import { ttsFormOptions } from "./text-to-speech-form";
-//import { VoiceSelector } from "@/features/text-to-speech/components/voice-selector";
+import { VoiceSelector } from "@/features/text-to-speech/components/voice-selector";
 
 export function SettingsPanelSettings() {
   const form = useTypedAppFormContext(ttsFormOptions);

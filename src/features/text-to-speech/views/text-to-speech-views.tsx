@@ -1,18 +1,18 @@
 "use client";
 
-//import { useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
-//import { useTRPC } from "@/trpc/client";
-//import { TextInputPanel } from "@/features/text-to-speech/components/text-input-panel";
+import { useTRPC } from "@/trpc/client";
+import { TextInputPanel } from "@/features/text-to-speech/components/text-input-panel";
 import { VoicePreviewPlaceholder } from "@/features/text-to-speech/components/voice-preview-placeholder";
 import { SettingsPanel } from "../components/setting-panel";
-/*import {
+import {
   TextToSpeechForm,
   defaultTTSValues,
   type TTSFormValues
 } from "@/features/text-to-speech/components/text-to-speech-form";
-import { TTSVoicesProvider } from "../contexts/tts-voices-context";
-*/
+import { TTSVoicesProvider } from "../context/tts-voices-context";
+
 export function TextToSpeechView({
   initialValues,
 }: {
