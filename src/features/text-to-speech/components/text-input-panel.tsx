@@ -91,9 +91,7 @@ export function TextInputPanel() {
           </div>
         ) : (
           <div className="hidden lg:block">
-            <PromptSuggestions
-              onSelect={(prompt) => form.setFieldValue("text", prompt)}
-            />
+            is progress
           </div>
         )}
       </div>
