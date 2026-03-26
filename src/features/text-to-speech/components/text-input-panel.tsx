@@ -17,7 +17,7 @@ import {
 } from '../data/constant'
 import { ttsFormOptions } from "./text-to-speech-form";
 import { GenerateButton } from "./generate-button";
-//import { PromptSuggestions } from "./prompt-suggestions";
+import { PromptSuggestions } from "./prompt-suggestions";
 
 export function TextInputPanel() {
   const form = useTypedAppFormContext(ttsFormOptions);
@@ -90,9 +90,9 @@ export function TextInputPanel() {
             </div>
           </div>
         ) : (
-          <div className="hidden lg:block">
-            is progress
-          </div>
+          <PromptSuggestions 
+            onSelect={(prompt)=>form.setFieldValue('text',prompt)}
+          />
         )}
       </div>
     </div>
