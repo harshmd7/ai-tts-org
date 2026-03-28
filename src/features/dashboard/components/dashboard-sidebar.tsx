@@ -1,7 +1,7 @@
-'use client'
-import Image from "next/image"
-import { usePathname } from "next/navigation"
+"use client";
 
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import {
   Sidebar,
@@ -17,14 +17,12 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-
 import { Skeleton } from "@/components/ui/skeleton";
 import { 
   OrganizationSwitcher,
   UserButton,
   useClerk
 } from "@clerk/nextjs";
-
 import {
   type LucideIcon,
   Home,
@@ -34,8 +32,9 @@ import {
   Settings,
   Headphones,
 } from "lucide-react";
-
 import Link from "next/link";
+import { UsageContainer } from "@/features/billing/components/usage-container";
+import { VoiceCreateDialog } from "@/features/voices/components/voice-create-dialog";
 import { useState } from "react";
 
 interface MenuItem {
@@ -44,6 +43,7 @@ interface MenuItem {
   icon: LucideIcon;
   onClick?: () => void;
 };
+
 interface NavSectionProps {
   label?: string;
   items: MenuItem[];
@@ -131,26 +131,30 @@ export function DashboardSidebar() {
     },
     {
       title: "Help and support",
-      url: "mailto:harshduggar7@gmail.com",
+      url: "mailto:business@codewithantonio.com",
       icon: Headphones,
     },
   ];
 
   return (
     <>
+    <VoiceCreateDialog
+      open={voiceDialogOpen}
+      onOpenChange={setVoiceDialogOpen}
+    />
     <Sidebar collapsible="icon">
       <SidebarHeader className="flex flex-col gap-4 pt-4">
         <div 
         className="flex items-center gap-2 pl-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
           <Image
             src="/logo.svg"
-            alt="Speakify AI"
+            alt="Resonance"
             width={24}
             height={24}
             className="rounded-sm"
           />
           <span className="group-data-[collapsible=icon]:hidden font-semibold text-lg tracking-tighter text-foreground">
-            Speakify AI
+            Resonance
           </span>
           <SidebarTrigger className="ml-auto lg:hidden" />
         </div>
@@ -193,6 +197,7 @@ export function DashboardSidebar() {
       </SidebarContent>
       <div className="border-b border-dashed border-border" />
       <SidebarFooter className="gap-3 py-3">
+        <UsageContainer />
         <SidebarMenu>
           <SidebarMenuItem>
             <UserButton
@@ -220,4 +225,3 @@ export function DashboardSidebar() {
     </>
   );
 }
-
